@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-ja leading-relaxed tracking-wider text-theme; /* 日本語のための設定と共通設定 */
+  }
+}
+
+@layer components {
+  .text-body {
+    @apply text-base leading-relaxed;
+  }
+
+  .text-heading {
+    @apply text-base font-medium leading-relaxed;
+  }
+
+  .text-page-heading {
+    @apply text-3xl font-medium leading-relaxed;
+  }
+
+  .text-dialog-heading {
+    @apply text-xl font-medium leading-relaxed;
+  }
+
+  .text-msg-dialog-heading {
+    @apply text-lg font-medium leading-relaxed;
+  }
+
+  .text-error-msg {
+    @apply text-sm text-error;
+  }
+}
+
+/* react-datepicker の style を上書き */
+.react-datepicker {
+  color: #393e46 !important;
+  border: 1px solid #bcbcbc !important;
+}
+
+.react-datepicker__triangle::before {
+  border-bottom-color: #bcbcbc !important;
+}
+
+.react-datepicker-popper {
+  z-index: 20 !important;
+}
+
+.react-datepicker__input-container input {
+  width: 11rem;
+  border: solid #bcbcbc 1px;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.react-datepicker__input-container input::placeholder {
+  color: #bcbcbc !important;
+}
+
+.react-datepicker__navigation {
+  top: 0.625rem !important;
+}
+
+.react-datepicker__header {
+  background-color: #eeeeee !important;
+  border-bottom: 1px solid #bcbcbc !important;
+}
+
+.react-datepicker__current-month {
+  color: #393e46 !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #3e92a3 !important;
+}

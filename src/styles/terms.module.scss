@@ -1,0 +1,27 @@
+.terms {
+  div {
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+    ol {
+      margin-bottom: 32px;
+      list-style: decimal;
+      li {
+        position: relative;
+        padding-left: 0;
+        margin-left: 32px;
+      }
+    }
+    ul {
+      margin-bottom: 32px;
+      list-style: disc;
+      li {
+        position: relative;
+        padding-left: 0;
+        margin-left: 32px;
+      }
+    }
+  }
+}
