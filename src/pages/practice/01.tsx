@@ -14,7 +14,7 @@ const Page: NextPage = () => {
 
   const onSubmit = async () => {
     let isSuccess = true;
-    setLoading(true);
+
     try {
       await httpClient({
         method: 'post',
@@ -25,21 +25,20 @@ const Page: NextPage = () => {
           password: password,
         },
         headers: {
-          'Content-type': 'application/json',
+          'Content-Type': 'application/json',
         },
       });
     } catch (error) {
-      // エラー処理
-      window.alert('送信が失敗しました');
+      // error handling
+      window.alert('submit failed');
       isSuccess = false;
     }
     setLoading(false);
 
     if (isSuccess) {
-      window.alert('送信が成功しました');
+      window.alert('submit success');
     }
   };
-
   return (
     <Container maxWidth="max-w-4xl">
       <div className="mt-8">
@@ -55,31 +54,37 @@ const Page: NextPage = () => {
           />
         </div>
 
-        <div className="mt-8">
+        <div className="mb-3 mt-8">
           <label htmlFor="email">メールアドレス</label>
           <input
             id="email"
             type="text"
             placeholder="メールアドレス"
+            className="w-full rounded border px-4 py-2 text-input placeholder:text-theme-light"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            className="w-full rounded border px-4 py-2 text-input placeholder:text-theme-light"
           />
         </div>
 
-        <div className="mb-4 mt-8">
+        <div className="mb-3 mt-8">
           <label htmlFor="password">パスワード</label>
           <input
             id="password"
             type="text"
             placeholder="パスワード"
+            className="w-full rounded border px-4 py-2 text-input placeholder:text-theme-light"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
-            className="w-full rounded border px-4 py-2 text-input placeholder:text-theme-light"
           />
         </div>
 
-        <Button label="送信" variant="primary" onClick={onSubmit} loading={loading} />
+        <Button
+          label="送信"
+          variant="primary"
+          className="mt-8"
+          onClick={onSubmit}
+          loading={loading}
+        />
       </div>
     </Container>
   );
